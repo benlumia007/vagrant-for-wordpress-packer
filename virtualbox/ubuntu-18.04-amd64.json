@@ -1,6 +1,12 @@
 {
     "variables": {
-
+        "template": "ubuntu-18.04-amd64",
+        "cpus": "2",
+        "memory": "2048",
+        "headless": "false",
+        "checksum_type": "sha256",
+        "checksum_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/SHA256SUMS",
+        "image_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso"
     },
     "builders": [
         {
@@ -14,7 +20,7 @@
     ],
     "post-processors": [
         {
-            
+
         }
     ]
 }
