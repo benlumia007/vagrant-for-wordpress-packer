@@ -21,14 +21,14 @@
             "boot_wait": "10s",
             "http_directory": "http",
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-            "output_directory": "builds/{{ user `template` }}-{{ .Provider }}",
+            "output_directory": "builds/{{ user `template` }}-parallels",
             "ssh_port": 22,
             "ssh_wait_timeout": "10000s",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
 
             "prlctl_version_file": ".prlctl_version",
-            "vm_name": "{{ user `template` }}-{{ .Provider }}",
+            "vm_name": "{{ user `template` }}-parallels",
 
             "parallels_tools_flavor": "lin",
             "prlctl": [
@@ -86,7 +86,7 @@
     "post-processors": [
         {
             "compression_level": "8",
-            "output": "builds/{{ user `template` }}-{{ .Provider }}.box",
+            "output": "builds/{{ user `template` }}-parallels.box",
             "type": "vagrant"
         }
     ]
