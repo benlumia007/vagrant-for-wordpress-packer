@@ -67,7 +67,18 @@
             "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
             "expect_disconnect": true,
             "scripts": [
-                "scripts/setup.sh"
+                "scripts/setup.sh",
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/mysql.sh",
+                "scripts/mailhog.sh",
+                "scripts/php-custom.sh",
+                "scripts/sshd.sh",
+                "scripts/sudoers.sh",
+                "scripts/vagrant.sh",
+                "scripts/parallels.sh",
+                "scripts/composer.sh",
+                "scripts/wp-cli.sh"
             ],
             "type": "shell"
         }
