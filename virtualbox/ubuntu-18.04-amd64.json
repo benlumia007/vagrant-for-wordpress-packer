@@ -3,6 +3,7 @@
         "template": "ubuntu-18.04-amd64",
         "cpus": "2",
         "memory": "2048",
+        "disk_size": "65536",
         "headless": "false",
         "checksum_type": "sha256",
         "checksum_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/SHA256SUMS",
@@ -10,7 +11,31 @@
     },
     "builders": [
         {
+            "iso_url": "{{ user `image_url` }}",
+            "iso_checksum_type": "{{ user `checksum_type` }}",
+            "iso_checksum_url": "{{ user `checksum_url` }}",
 
+            "type": "virtualbox-iso",
+            "guest_os_type": "Ubuntu_64",
+            "hard_drive_interface": "sata",
+            "disk_size": "{{ user `disk_size` }}",
+            "headless": "{{ user `headless` }}",
+            "boot_wait": "10s",
+            "guest_additions_path": "VBoxGuestAdditions_{{ .Version }}.iso",
+            "http_directory": "http",
+            "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+            "output_directory": "../builds/{{ user `template` }}-{{ .Provider }}",
+            "ssh_port": 22,
+            "ssh_wait_timeout": "10000s",
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
+
+            "virtualbox_version_file": ".vbox_version",
+            "vm_name": "{{ user `template` }}-{{ .Provider }}",
+            "vboxmanage": [
+                [ "modifyvm", "{{ .Name }}", "--cpus", "{{ user `cpus` }}" ],
+                [ "modifyvm", "{{ .Name }}", "--memory", "{{ user `memory` }}" ]
+            ]
         }
     ],
     "provisioners": [
