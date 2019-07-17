@@ -40,12 +40,19 @@
     ],
     "provisioners": [
         {
-
+            "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+            "expect_disconnect": true,
+            "scripts": [
+                "scripts/setup.sh"
+            ],
+            "type": "shell"
         }
     ],
     "post-processors": [
         {
-
+            "compression_level": "8",
+            "output": "../builds/{{ user `template` }}-{{ .Provider }}.box",
+            "type": "vagrant"
         }
     ]
 }
