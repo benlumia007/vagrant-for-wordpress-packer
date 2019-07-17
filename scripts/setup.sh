@@ -6,3 +6,4 @@ noroot() {
 
 # Create a .rnd file due to OpenSSL issue.
 noroot touch .rnd;
+
