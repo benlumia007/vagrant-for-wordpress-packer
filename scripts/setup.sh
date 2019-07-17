@@ -1,4 +1,8 @@
 #!/bin/sh -eux
 
-apt-get update -y;
-apt-get upgrade -y;
+noroot() {
+    sudo -EH -u "vagrant" "$@";
+}
+
+# Create a .rnd file due to OpenSSL issue.
+noroot touch .rnd;
