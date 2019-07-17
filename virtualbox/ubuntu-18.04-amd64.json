@@ -24,14 +24,14 @@
             "guest_additions_path": "VBoxGuestAdditions_{{ .Version }}.iso",
             "http_directory": "http",
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-            "output_directory": "builds/{{ user `template` }}-{{ .Provider }}",
+            "output_directory": "builds/{{ user `template` }}-{{.Provider}}",
             "ssh_port": 22,
             "ssh_wait_timeout": "10000s",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
 
             "virtualbox_version_file": ".vbox_version",
-            "vm_name": "{{ user `template` }}-{{ .Provider }}",
+            "vm_name": "{{ user `template` }}-virtualbox",
             "vboxmanage": [
                 [ "modifyvm", "{{ .Name }}", "--cpus", "{{ user `cpus` }}" ],
                 [ "modifyvm", "{{ .Name }}", "--memory", "{{ user `memory` }}" ]
@@ -87,7 +87,7 @@
     "post-processors": [
         {
             "compression_level": "8",
-            "output": "builds/{{ user `template` }}-{{ .Provider }}.box",
+            "output": "builds/{{ user `template` }}-virtualbox.box",
             "type": "vagrant"
         }
     ]
