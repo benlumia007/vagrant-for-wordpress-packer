@@ -79,7 +79,8 @@
                 "scripts/vagrant.sh",
                 "scripts/virtualbox.sh",
                 "scripts/composer.sh",
-                "scripts/wp-cli.sh"
+                "scripts/wp-cli.sh",
+                "scripts/clean.sh"
             ],
             "type": "shell"
         }
