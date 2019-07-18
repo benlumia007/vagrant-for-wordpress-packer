@@ -20,6 +20,8 @@
             "headless": "{{ user `headless` }}",
             "boot_wait": "10s",
             "generation": "2",
+            "memory": "{{ user `memory` }}",
+            "cpus": "{{ user `cpus` }}",
             "enable_secure_boot": "false",
             "guest_additions_mode": "disable",
             "http_directory": "http",
