@@ -5,7 +5,6 @@
         "memory": "2048",
         "disk_size": "65536",
         "headless": "false",
-        "hyperv_switch": "{{env `hyperv_switch`}}",
         "checksum_type": "sha256",
         "checksum_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/SHA256SUMS",
         "image_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso"
@@ -23,7 +22,6 @@
             "generation": "2",
             "enable_secure_boot": "false",
             "guest_additions_mode": "disable",
-            "switch_name": "{{user `hyperv_switch`}}",
             "http_directory": "http",
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
             "output_directory": "builds/{{ user `template` }}-hyperv",
