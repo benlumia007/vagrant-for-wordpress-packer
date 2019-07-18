@@ -19,6 +19,9 @@
             "disk_size": "{{ user `disk_size` }}",
             "headless": "{{ user `headless` }}",
             "boot_wait": "10s",
+            "generation": "2",
+            "enable_secure_boot": "false",
+            "guest_additions_mode": "disable",
             "http_directory": "http",
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
             "output_directory": "builds/{{ user `template` }}-hyperv",
@@ -30,7 +33,9 @@
             "vm_name": "{{ user `template` }}-hyperv",
 
             "boot_command": [
-                "<esc><wait10><esc><esc><enter><wait>",
+                "<esc><wait>",
+                "<esc><wait>",
+                "<esc><enter><wait>",
                 "set gfxpayload=1024x768<enter>",
                 "linux /install/vmlinuz ",
                 "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/preseed-hyperv.cfg ",
