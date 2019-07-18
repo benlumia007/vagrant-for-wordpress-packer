@@ -5,7 +5,7 @@
         "memory": "2048",
         "disk_size": "65536",
         "headless": "false",
-        "hyperv_switch": "{{env `hyperv_switch`}}",
+        "hyperv_switch": "{{env `default_switch`}}",
         "checksum_type": "sha256",
         "checksum_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/SHA256SUMS",
         "image_url": "http://cdimage.ubuntu.com/ubuntu/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso"
