@@ -33,9 +33,7 @@
             "vm_name": "{{ user `template` }}-hyperv",
 
             "boot_command": [
-                "<esc><wait>",
-                "<esc><wait>",
-                "<esc><enter><wait>",
+                "<esc><wait10><esc><esc><enter><wait>",
                 "set gfxpayload=1024x768<enter>",
                 "linux /install/vmlinuz ",
                 "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/preseed-hyperv.cfg ",
