@@ -22,7 +22,6 @@
             "generation": "2",
             "memory": "{{ user `memory` }}",
             "cpus": "{{ user `cpus` }}",
-            "enable_secure_boot": "false",
             "guest_additions_mode": "disable",
             "http_directory": "http",
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
@@ -46,7 +45,8 @@
                 "keyboard-configuration/variant=USA console-setup/ask_detect=false <enter>",
                 "initrd /install/initrd.gz<enter>",
                 "boot<enter>"
-            ]
+            ],
+            "enable_secure_boot": false
         }
     ],
     "provisioners": [
