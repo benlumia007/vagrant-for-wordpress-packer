@@ -30,6 +30,7 @@
             "ssh_timeout": "10000s",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
+            "switch_name": "Default Switch",
 
             "vm_name": "{{ user `template` }}-hyperv",
 
