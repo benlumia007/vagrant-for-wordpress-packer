@@ -23,7 +23,7 @@
             "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
             "output_directory": "builds/{{ user `template` }}-hyperv",
             "ssh_port": 22,
-            "ssh_wait_timeout": "10000s",
+            "ssh_timeout": "10000s",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
 
