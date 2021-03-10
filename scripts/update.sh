@@ -2,6 +2,7 @@
 
 # Add Git Repository for Latest Version.
 sudo add-apt-repository ppa:git-core/ppa -y;
+sudo add-apt-repository ppa:ondrej/php -y;
 
 # Update the package list
 sudo apt-get update -y;
