@@ -6,3 +6,4 @@ sudo apt-get install nginx mysql-server -y;
 sudo apt-get install curl gettext g++ git git-lfs git-svn graphviz imagemagick make memcached ngrep nodejs ntp python-pip subversion unzip zip -y;
 sudo apt-get install npm -y;
 sudo -H pip install shyaml;
+sudo update-alternatives --set php /usr/bin/php7.4
