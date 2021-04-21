@@ -1,0 +1,78 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<esc><wait10><esc><esc><enter><wait>",
+        "set gfxpayload=1024x768<enter>",
+        "linux /install/vmlinuz ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/preseed-hyperv.cfg ",
+        "debian-installer=en_US.UTF-8 auto locale=en_US.UTF-8 kbd-chooser/method=us ",
+        "hostname={{.Name}} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+        "keyboard-configuration/variant=USA console-setup/ask_detect=false <enter>",
+        "initrd /install/initrd.gz<enter>",
+        "boot<enter>"
+      ],
+      "boot_wait": "10s",
+      "cpus": "{{ user `cpus` }}",
+      "disk_size": "{{ user `disk_size` }}",
+      "enable_secure_boot": false,
+      "generation": "2",
+      "guest_additions_mode": "disable",
+      "headless": "{{ user `headless` }}",
+      "http_directory": "http",
+      "iso_checksum": "file:{{ user `checksum_url` }}",
+      "iso_url": "{{ user `image_url` }}",
+      "memory": "{{ user `memory` }}",
+      "output_directory": "builds/{{ user `template` }}-hyperv",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_timeout": "10000s",
+      "ssh_username": "vagrant",
+      "switch_name": "Default Switch",
+      "type": "hyperv-iso",
+      "vm_name": "{{ user `template` }}-hyperv"
+    }
+  ],
+  "post-processors": [
+    {
+      "compression_level": "8",
+      "output": "builds/{{ user `template` }}-hyperv.box",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "scripts": [
+        "scripts/setup.sh",
+        "scripts/update.sh",
+        "scripts/packages.sh",
+        "scripts/mysql.sh",
+        "scripts/mailhog.sh",
+        "scripts/php-custom.sh",
+        "scripts/sshd.sh",
+        "scripts/sudoers.sh",
+        "scripts/vagrant.sh",
+        "scripts/composer.sh",
+        "scripts/wp-cli.sh",
+        "scripts/clean.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "checksum_type": "sha256",
+    "checksum_url": "http://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04.1/release/SHA256SUMS",
+    "cpus": "2",
+    "disk_size": "65536",
+    "headless": "false",
+    "image_url": "http://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04.1/release/ubuntu-20.04.1-legacy-server-amd64.iso",
+    "memory": "2048",
+    "template": "ubuntu-20.04-amd64"
+  }
+}
+
