@@ -4,6 +4,9 @@
 sudo add-apt-repository ppa:git-core/ppa -y;
 sudo add-apt-repository ppa:ondrej/php -y;
 
+# Add NPM/Nodejs
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+
 # Update the package list
 sudo apt-get update -y;
 
