@@ -15,11 +15,11 @@
         "boot<enter>"
       ],
       "boot_wait": "10s",
+      "communicator": "ssh",
       "cpus": "{{ user `cpus` }}",
       "disk_size": "{{ user `disk_size` }}",
       "enable_secure_boot": false,
       "generation": "2",
-      "guest_additions_mode": "disable",
       "headless": "{{ user `headless` }}",
       "http_directory": "http",
       "iso_checksum": "file:{{ user `checksum_url` }}",
