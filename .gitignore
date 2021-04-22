@@ -1,3 +1,2 @@
+builds
 packer_cache
-/builds/*
-!/builds/readme.md
